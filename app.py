@@ -9,7 +9,7 @@ from bson.objectid import ObjectId
 
 # Importing env only if the os can find the existing file path
 if os.path.exists("env.py"):
-    import env
+    import env as config
 
 
 # Creating an instance of Flask
