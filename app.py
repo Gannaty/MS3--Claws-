@@ -30,6 +30,7 @@ def get_posts():
     posts = mongo.db.posts.find()
     return render_template("posts.html", posts=posts)
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -45,15 +46,16 @@ def register():
             return redirect(url_for("register"))
 
         register = {
-            "username" : request.form.get("username").lower(),
-            "password" : generate_password_hash(request.form.get("password"))
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
         }
-        mongo.db.users.insert(register)
+        mongo.db.users.insert_one(register)
 
         # Putting new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration successful")
-        return render_template("register.html")
+
+    return render_template("register.html")
 
 
 if __name__ == "__main__":

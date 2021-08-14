@@ -41,9 +41,25 @@
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
     </header>
-    <!--Adding content block for html for non.base pages-->
+
+    <section>
+        <!-- Flash messages appear here-->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="light-blue lighten-4 centre-align">{{ message }}</h4>
+                    </div>
+                {%  endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+
+    <main>
+    <!--Adding content block for html for custom content on non-base pages-->
     {% block content %}
     {% endblock %}
+    </main> 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
