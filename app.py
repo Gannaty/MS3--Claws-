@@ -32,7 +32,28 @@ def get_posts():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
+    if request.method == "POST":
+        # Check if username inputted in the form matches any username
+        # in mdb 'users' collection
+        # If it matches, the user is exisitng. We store usernames in
+        # .lower() for ease of comparison
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        register = {
+            "username" : request.form.get("username").lower(),
+            "password" : generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert(register)
+
+        # Putting new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration successful")
+        return render_template("register.html")
 
 
 if __name__ == "__main__":
