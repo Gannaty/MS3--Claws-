@@ -25,10 +25,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/get_posts")
-def get_posts():
-    posts = mongo.db.posts.find()
-    return render_template("posts.html", posts=posts)
+@app.route("/index")
+def index():
+    post = list(mongo.db.posts.find())
+
+    return render_template("index.html", post=post)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -130,7 +131,7 @@ def add_post():
             "profile", username=session["user"]))
 
     return render_template(
-        "/add_post.html", user=user, title="post_caption")
+        "/add_post.html", user=user, title="title")
 
 
 if __name__ == "__main__":
