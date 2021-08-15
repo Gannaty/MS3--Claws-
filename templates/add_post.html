@@ -7,13 +7,13 @@
     <form class="col s12" method="POST" action="{{ url_for('add_post') }}">
         <div class="row">
             <div class="input-field col s8 offset-s2">
-                <input id="icon_prefix" name="title" type="text" class="validate">
+                <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate" required>
                 <label for="icon_prefix">Post title</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s8 offset-s2">
-              <textarea id="textarea2" name="post_caption" class="materialize-textarea" data-length="120"></textarea>
+              <textarea id="textarea2" name="post_caption" class="materialize-textarea" data-length="120" required></textarea>
               <label for="textarea2">Caption</label>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="file-field input-field col s8 offset-s2">
                 <div class="file-path-wrapper">
                 <label for="image">Post Picture</label>
-                <input id="image" name="image" class="validate" type="url" pattern="https?://.+" onchange="imagePreview();">
+                <input id="image" name="image" class="validate" type="url" pattern="https?://.+" onchange="imagePreview();" required>
                 <p><small>Copy and paste image url or use default provided
                 </small></p>
                 </div>
@@ -31,6 +31,7 @@
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right"></i>
         </button>
+        <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
         </div>
     </form>
     <div class="container col s8 offset-s2 hide">
