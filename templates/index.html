@@ -10,18 +10,22 @@
    
     
 
-    {% for posts in post %}
-    <div class="row">
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{ post.image }}"  alt="">
-              <span class="card-title">{{ posts.title }}</span>
-              <a href="#">This is a link</a>
-            </div>
+  <div class="container">
+    <div class="row card-margin">
+      {% for posts in posts %}
+      <div class="col m4 s12 ">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ posts.image }}">
+          </div>
+          <div class="card-post-title">
+            <span class="card-title-style">{{ posts.title }}</span>
           </div>
         </div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
+  </div>
+    
 
 {% endblock %}

@@ -25,11 +25,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-@app.route("/index")
-def index():
-    post = list(mongo.db.posts.find())
+@app.route("/get_posts")
+def get_posts():
+    posts = list(mongo.db.posts.find())
 
-    return render_template("index.html", post=post)
+    return render_template("index.html", posts=posts)
 
 
 @app.route("/register", methods=["GET", "POST"])
