@@ -4,13 +4,8 @@
 <!-- Keeping block element name the same so info goes to the same block -->
 {% block content %}
 
-    
-
-    
-   
-    
-
-  <div class="container">
+  <!-- Loop through all posts present in database and display -->
+  <div class="container gallery">
     <div class="row card-margin">
       {% for posts in posts %}
       <div class="col m4 s12 ">

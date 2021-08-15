@@ -31,3 +31,8 @@ nav .brand-logo {
     margin-left: 3%;
     margin-right: 3%;
 }
+
+.gallery img {
+    width: 100%;
+    object-fit: cover;
+}
