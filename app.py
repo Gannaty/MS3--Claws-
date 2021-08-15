@@ -91,7 +91,8 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # Username variable = grab session user's username from db
-    username = mongo.db.users.find_one({"username": session["user"]})["username"]
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     return render_template("profile.html", username=username)
 
 
@@ -101,6 +102,35 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+# ------- Add post -------
+
+@app.route("/add_post", methods=["GET", "POST"])
+def add_post():
+    """
+    Registered users can upload their favourite recipes.
+    """
+
+    # user variable for user image
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+
+    if request.method == "POST":
+        post = {
+            "title": request.form.get("title"),
+            "post_caption": request.form.get("post_caption"),
+            "image": request.form.get("image"),
+            "poster": session["user"],
+        }
+
+        mongo.db.posts.insert_one(post)
+        flash("Post shared!")
+        return redirect(url_for(
+            "profile", username=session["user"]))
+
+    return render_template(
+        "/add_post.html", user=user, title="post_caption")
 
 
 if __name__ == "__main__":
