@@ -3,6 +3,7 @@
 
 <h3 class="center-align">Add new post</h3>
 
+<!-- Add task form. For logged in users only -->
 <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('add_post') }}">
         <div class="row">
@@ -17,16 +18,18 @@
               <label for="textarea2">Caption</label>
             </div>
         </div>
+
+        <!-- Add image url -->
         <div class="row">
             <div class="file-field input-field col s8 offset-s2">
-                <div class="file-path-wrapper">
-                <label for="image">Post Picture</label>
                 <input id="image" name="image" class="validate" type="url" pattern="https?://.+" onchange="imagePreview();" required>
-                <p><small>Copy and paste image url or use default provided
+                <p><small>Copy and paste your image URL
                 </small></p>
-                </div>
+                <label for="image">Post Picture</label>    
             </div>
         </div>
+
+        <!-- Submit and cancel buttons. Cancel goes to user profile -->
         <div class="row center-align">
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right"></i>
@@ -34,6 +37,8 @@
         <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
         </div>
     </form>
+
+    <!-- Image preview. Removed hide class on change (url entered) -->
     <div class="container col s8 offset-s2 hide">
         <img class="responsive-img image-preview" src="#" alt="Preview of post image input">
     </div>
