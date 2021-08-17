@@ -117,6 +117,8 @@ def add_post():
     user = mongo.db.users.find_one(
         {"username": session["user"]})
 
+    posts = list(mongo.db.posts.find())
+
     if request.method == "POST":
         post = {
             "title": request.form.get("title"),
@@ -131,7 +133,7 @@ def add_post():
             "profile", username=session["user"]))
 
     return render_template(
-        "/add_post.html", user=user, title="title")
+        "/add_post.html", user=user, title="title", posts=posts)
 
 
 if __name__ == "__main__":
