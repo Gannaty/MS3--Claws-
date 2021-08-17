@@ -6,21 +6,24 @@ $( "#post_image_url" ).on('change', function(event) {
 
   });
   
-  // cloudinary callback. Sets upload image url input
-  function imageUploaded(error, result) {
+
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: 'dwlkkut0a', 
+  uploadPreset: 'p1skzthc'}, (error, result) => { 
+
     $( '#post_header_image' ).prop("src", result[0].secure_url);
     $( '#post_image_url' ).val(result[0].secure_url);
-    
+
+    if (!error && result && result.event === "success") { 
+      console.log('Done! Here is the image info: ', result.info); 
+    }
   }
+)
   
-  // Shows the cloudinary image upload widget
-  $( "#image_upload_btn" ).click(function(event) {
-    event.preventDefault();
+  document.getElementById("upload_widget").addEventListener("click", function(){
+      myWidget.open();
+    }, false);
+
   
-    cloudinary.openUploadWidget(
-      {
-        cloud_name: 'dwlkkut0a',
-        upload_preset: 'p1skzthc'
-      },
-      imageUploaded);
-  });
+
+  
