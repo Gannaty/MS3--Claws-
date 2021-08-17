@@ -25,7 +25,7 @@
 
                 <button id="upload_widget" class="cloudinary-button btn waves-effect waves-light">Upload files</button>
 
-                <input id="post_image_url" name="image" type="hidden" value="{{ posts.image }}">
+                <input id="post_image_url" name="image" type="hidden" scr="{{ posts.image }}">
 
 
             </div>
@@ -41,8 +41,8 @@
     </form>
 
     <!-- Image preview. Removed hide class on change (url entered) -->
-    <div class="container col s8 offset-s2">
-        <img id="post_header_image" class="responsive-img image-preview" src="{{ posts.image }}" alt="Preview of post image input">
+    <div class="container col s8 offset-s2 hide">
+        <img id="post_header_image" class="responsive-img image-preview" src="{{ posts.image }}" alt="Preview of post image input" onchange="imagePreview();">
     </div>
     
     

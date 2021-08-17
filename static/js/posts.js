@@ -3,7 +3,7 @@
 // Shows the current selected image in the image box
   
 $( "#post_image_url" ).on('change', function(event) {
-    $( '#post_header_image' ).prop("src", $( this ).val());
+    $( '#post_header_image' ).prop("src", result.info.secure_url)
 
   });
 
@@ -17,6 +17,7 @@ $( "#post_image_url" ).on('change', function(event) {
         console.log('Done! Here is the image info: ', result.info);
         
         
+        $( '#post_header_image' ).prop("src", result.info.secure_url);
         $( '#post_image_url' ).val(result.info.secure_url);
 
       }
@@ -32,6 +33,6 @@ $( "#post_image_url" ).on('change', function(event) {
 // Function for image preview
 function imagePreview() {
   $("div").removeClass("hide");
-  var url = $("#image").val();
+  $("#post_header_image").val();
   $('.image-preview').attr('src', result.info.secure_url);
 }; 
