@@ -25,5 +25,10 @@ var myWidget = cloudinary.createUploadWidget({
     }, false);
 
   
-
+// Function for image preview
+function imagePreview() {
+  $("div").removeClass("hide");
+  var url = $("#image").val();
+  $('.image-preview').attr('src',url);
+}
   

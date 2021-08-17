@@ -9,9 +9,3 @@ $(document).ready(function() {
   });
 
 
-// Function for image preview
-function imagePreview() {
-  $("div").removeClass("hide");
-  var url = $("#image").val();
-  $('.image-preview').attr('src',url);
-}
