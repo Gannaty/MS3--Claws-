@@ -7,7 +7,12 @@ $( "#post_image_url" ).on('change', function(event) {
 
   });
 
- 
+$( ".image_upload_btn" ).click(function(event) {
+  event.preventDefault();
+
+});
+    
+    
   var myWidget = cloudinary.createUploadWidget({
     cloudName: 'dwlkkut0a', 
     uploadPreset: 'p1skzthc'}, (error, result) => { 
@@ -19,6 +24,7 @@ $( "#post_image_url" ).on('change', function(event) {
         
         $( '#post_header_image' ).prop("src", result.info.secure_url);
         $( '#post_image_url' ).val(result.info.secure_url);
+        
 
       }
     }
@@ -28,6 +34,7 @@ $( "#post_image_url" ).on('change', function(event) {
         myWidget.open();
       }, false);
 
+  
       
   
 // Function for image preview
