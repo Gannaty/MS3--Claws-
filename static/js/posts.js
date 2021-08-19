@@ -38,6 +38,5 @@ $( ".image_upload_btn" ).click(function(event) {
 // Function for image preview
 $( ".image_upload_btn" ).on('click', function() {
     $("img").removeClass("hide");
-    $("#post_header_image").val();
     $('.image-preview').attr('src', result.info.secure_url);
 });
