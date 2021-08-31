@@ -102,8 +102,6 @@ def profile(username):
 
     if session["user"] == username:
 
-        
-
         posts = list(
             mongo.db.posts.find({"poster": username.lower()}))
 

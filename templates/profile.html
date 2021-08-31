@@ -35,12 +35,15 @@
                 {% for post in posts %}
                 <div class="col m4 s12 ">
                     <div class="card">
-                    <div class="card-image">
-                        <img src="{{ post.image }}">
-                    </div>
-                    <div class="card-post-title">
-                        <span class="card-title-style">{{ post.title }}</span>
-                    </div>
+                        <div class="card-image">
+                            <img src="{{ post.image }}">
+                        </div>
+                        <div class="card-post-title">
+                            <span class="card-title-style">{{ post.title }}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{ post.post_caption }}</p>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
