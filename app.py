@@ -102,14 +102,13 @@ def profile(username):
 
     if session["user"] == username:
 
-        user = mongo.db.users.find_one(
-            {"username": session["user"]})
+        
 
         posts = list(
             mongo.db.posts.find({"poster": username.lower()}))
 
     # Find the post of user currently in session and display on profile page
-    return render_template("profile.html", user=user, posts=posts, username=username)
+    return render_template("profile.html", posts=posts, username=username)
 
 
 # ------- Logout ----------------
