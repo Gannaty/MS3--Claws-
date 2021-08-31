@@ -27,6 +27,30 @@
 
             </div>
         </div>
+
+        {% else %}
+            <!-- Loop through all posts present in database and display -->
+            <div class="container gallery">
+                <div class="row card-margin">
+                {% for post in posts %}
+                <div class="col m4 s12 ">
+                    <div class="card">
+                    <div class="card-image">
+                        <img src="{{ post.image }}">
+                    </div>
+                    <div class="card-post-title">
+                        <span class="card-title-style">{{ post.title }}</span>
+                    </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+            </div>
+
+
     {% endif %}
+
+    
+    
 
 {% endblock %}

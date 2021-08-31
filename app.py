@@ -59,6 +59,8 @@ def register():
 
     return render_template("register.html")
 
+# ------- Login -------
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -89,13 +91,28 @@ def login():
     return render_template("/login.html")
 
 
+# ------- Add user posts to profile page ---------------
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # Username variable = grab session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+    """
+     Username variable = grab session user's username from db
+    """
+    username = mongo.db.users.find_one({"username": session["user"]})["username"]
 
+    if session["user"] == username:
+
+        user = mongo.db.users.find_one(
+            {"username": session["user"]})
+
+        posts = list(
+            mongo.db.posts.find({"poster": username.lower()}))
+
+    # Find the post of user currently in session and display on profile page
+    return render_template("profile.html", user=user, posts=posts, username=username)
+
+
+# ------- Logout ----------------
 
 @app.route("/logout")
 def logout():
@@ -113,10 +130,12 @@ def add_post():
     Registered users can upload their favourite recipes.
     """
 
-    # user variable for user image
+    # Find if this user is the session user
     user = mongo.db.users.find_one(
         {"username": session["user"]})
 
+    # Make the posts found a list to be interated over in
+    # index.html to display all posts on the home page
     posts = list(mongo.db.posts.find())
 
     if request.method == "POST":
