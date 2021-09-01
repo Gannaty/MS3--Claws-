@@ -8,7 +8,7 @@
     <form class="col s12" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
         <div class="row">
             <div class="input-field col s8 offset-s2">
-                <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate">
+                <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate" value="{{ post.title }}">
                 <label for="icon_prefix">{{ post.title }}</label>
             </div>
         </div>
@@ -26,7 +26,7 @@
                 <button id="upload_widget" class="cloudinary-button btn waves-effect waves-light image_upload_btn">
                     Upload files</button>
 
-                <input id="post_image_url" name="image" type="hidden" scr="{{ post.image }}">
+                <input id="post_image_url" name="image" type="hidden" scr="{{ post.image }}" value="{{ post.image }}">
 
 
             </div>
