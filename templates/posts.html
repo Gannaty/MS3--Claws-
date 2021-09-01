@@ -8,6 +8,12 @@
 
 {% block content %}
 
+    {% if session.user %}
+    <div class="row center-align">
+        <a class="waves-effect waves-light btn-large">Edit Post</a>
+        <a class="waves-effect waves-light btn-large">Delete Post</a>
+    </div>
+    {% endif %}
 
     <div class="row">
         <div class="col s12 m6">
