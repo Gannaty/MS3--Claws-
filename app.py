@@ -98,7 +98,8 @@ def profile(username):
     """
      Username variable = grab session user's username from db
     """
-    username = mongo.db.users.find_one({"username": session["user"]})["username"]
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
 
     if session["user"] == username:
 
@@ -150,6 +151,19 @@ def add_post():
 
     return render_template(
         "/add_post.html", user=user, title="title", posts=posts)
+
+
+# ------- Add post -------
+@app.route("/posts.html/<post_id>")
+def posts(post_id):
+
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+
+    post = mongo.db.posts.find_one(
+        {"_id": ObjectId(post_id)})
+
+    return render_template("posts.html", post=post, user=user)
 
 
 if __name__ == "__main__":
