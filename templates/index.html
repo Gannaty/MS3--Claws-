@@ -8,16 +8,18 @@
   <div class="container gallery">
     <div class="row card-margin">
       {% for posts in posts %}
-      <div class="col m4 s12 ">
-        <div class="card">
-          <div class="card-image">
-            <img src="{{ posts.image }}">
-          </div>
-          <div class="card-post-title">
-            <span class="card-title-style">{{ posts.title }}</span>
+      <a href="{{ url_for('posts', post_id=posts._id) }}">
+        <div class="col m4 s12 ">
+          <div class="card">
+            <div class="card-image">
+              <img src="{{ posts.image }}">
+            </div>
+            <div class="card-post-title">
+              <span class="card-title-style">{{ posts.title }}</span>
+            </div>
           </div>
         </div>
-      </div>
+      </a>  
       {% endfor %}
     </div>
   </div>
