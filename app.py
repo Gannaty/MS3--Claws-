@@ -153,17 +153,15 @@ def add_post():
         "/add_post.html", user=user, title="title", posts=posts)
 
 
-# ------- Add post -------
+# ------- Show each post on own page -------
+
 @app.route("/posts.html/<post_id>")
 def posts(post_id):
-
-    user = mongo.db.users.find_one(
-        {"username": session["user"]})
 
     post = mongo.db.posts.find_one(
         {"_id": ObjectId(post_id)})
 
-    return render_template("/posts.html", post=post, user=user)
+    return render_template("/posts.html", post=post)
 
 
 if __name__ == "__main__":

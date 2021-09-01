@@ -8,6 +8,7 @@
 
 {% block content %}
 
+    <!-- Only display edit and delete buttons if user logged in-->
     {% if session.user %}
     <div class="row center-align">
         <a class="waves-effect waves-light btn-large">Edit Post</a>
