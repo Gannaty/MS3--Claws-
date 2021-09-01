@@ -8,13 +8,13 @@
     <form class="col s12" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
         <div class="row">
             <div class="input-field col s8 offset-s2">
-                <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate" value="{{ post.title }}">
+                <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate" value="{{ post.title }}" required>
                 <label for="icon_prefix">Edit Title</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s8 offset-s2">
-              <textarea id="textarea2" name="post_caption" class="materialize-textarea" data-length="120">{{ post.post_caption }}</textarea>
+              <textarea id="textarea2" name="post_caption" class="materialize-textarea" data-length="120" required>{{ post.post_caption }}</textarea>
               <label for="textarea2">Edit Caption</label>
             </div>
         </div>
