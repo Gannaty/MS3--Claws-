@@ -191,6 +191,20 @@ def edit_post(post_id):
     return render_template("/edit_post.html", post=post)
 
 
+# ------- Delete post -------
+
+@app.route("/delete_post/<post_id>")
+def delete_post(post_id):
+
+    # Find post with ObjectId = to post_id variable
+    mongo.db.posts.remove({"_id": ObjectId(post_id)})
+    flash("Post deleted")
+
+    # Redirect to session user profile page
+    return redirect(url_for(
+            "profile", username=session["user"]))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
