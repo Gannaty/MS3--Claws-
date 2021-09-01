@@ -124,7 +124,7 @@ def logout():
 @app.route("/add_post", methods=["GET", "POST"])
 def add_post():
     """
-    Registered users can upload their favourite recipes.
+    Registered users can upload posts about nail art
     """
 
     # Find if this user is the session user
