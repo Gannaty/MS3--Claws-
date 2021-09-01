@@ -11,8 +11,8 @@
     <!-- Only display edit and delete buttons if user logged in-->
     {% if session.user %}
     <div class="row center-align">
-        <a href="{{ url_for('posts', post_id=post._id) }}" class="waves-effect waves-light btn-large">Edit Post</a>
-        <a href="{{ url_for('posts', post_id=post._id) }}" class="waves-effect waves-light btn-large">Delete Post</a>
+        <a href="{{ url_for('edit_post', post_id=post._id) }}" class="waves-effect waves-light btn-large">Edit Post</a>
+        <a href="" class="waves-effect waves-light btn-large">Delete Post</a>
     </div>
     {% endif %}
 

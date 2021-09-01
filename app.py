@@ -166,8 +166,10 @@ def posts(post_id):
 
 # ------- Edit post -------
 
-@app.route("/edit_post.html", methods=["GET", "POST"])
+@app.route("/edit_post.html/<post_id>", methods=["GET", "POST"])
 def edit_post(post_id):
+
+    
 
     post = mongo.db.posts.find_one(
         {"_id": ObjectId(post_id)})

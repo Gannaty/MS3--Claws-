@@ -5,17 +5,17 @@
 
 <!-- Add task form. For logged in users only -->
 <div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('edit_post') }}">
+    <form class="col s12" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
         <div class="row">
             <div class="input-field col s8 offset-s2">
                 <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate" required>
-                <label for="icon_prefix">Edit post title</label>
+                <label for="icon_prefix">{{ post.title }}</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s8 offset-s2">
               <textarea id="textarea2" name="post_caption" class="materialize-textarea" data-length="120" required></textarea>
-              <label for="textarea2">Edit post caption</label>
+              <label for="textarea2">{{ post.post_caption }}</label>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
                 <button id="upload_widget" class="cloudinary-button btn waves-effect waves-light image_upload_btn">
                     Upload files</button>
 
-                <input id="post_image_url" name="image" type="hidden" scr="{{ posts.image }}">
+                <input id="post_image_url" name="image" type="hidden" scr="{{ post.image }}">
 
 
             </div>
@@ -43,7 +43,7 @@
 
     <!-- Image preview -->
     <div class="container col s8 offset-s2">
-        <img id="post_header_image" class="responsive-img image-preview hide" src="{{ posts.image }}" alt="Preview of post image input">
+        <img id="post_header_image" class="responsive-img image-preview" src="{{ post.image }}" alt="Preview of post image input">
     </div>
     
     
