@@ -25,6 +25,7 @@
     </form>
   </div>
 
+  {% if posts|length > 0 %}
   <!-- Loop through all posts present in database and display -->
   <div class="container gallery">
     <div class="row card-margin">
@@ -46,6 +47,11 @@
       {% endfor %}
     </div>
   </div>
-    
+  {% else %} 
+  <div class="col s12 center-align">
+    <p>Sorry, no posts found!</p>
+    <a href="{{ url_for('get_posts') }}" class="waves-effect waves-light btn">Back to explore page</a>
+  </div>
+  {% endif %}
 
 {% endblock %}
