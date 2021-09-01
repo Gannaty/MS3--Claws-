@@ -40,3 +40,9 @@ $( ".image_upload_btn" ).on('click', function() {
     $("img").removeClass("hide");
     $('.image-preview').attr('src', result.info.secure_url);
 });
+
+
+//Materialize modal trigger
+$(document).ready(function(){
+  $('.modal').modal();
+});

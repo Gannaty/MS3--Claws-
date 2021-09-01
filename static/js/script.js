@@ -7,3 +7,9 @@ $(document).ready(function(){
 $(document).ready(function() {
     $('textarea#textarea2').characterCounter();
   });
+
+
+//Materialize modal trigger
+$(document).ready(function(){
+    $('.modal').modal();
+  });
