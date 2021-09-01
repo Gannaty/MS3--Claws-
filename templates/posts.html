@@ -8,8 +8,8 @@
 
 {% block content %}
 
-    <!-- Only display edit and delete buttons if user logged in-->
-    {% if session.user %}
+    <!-- display edit and delete buttons if the post belongs to logged in user -->
+    {% if session.user == post.poster %}
     <div class="row center-align">
         <a href="{{ url_for('edit_post', post_id=post._id) }}" class="waves-effect waves-light btn-large">Edit Post</a>
         <a href="" class="waves-effect waves-light btn-large">Delete Post</a>
