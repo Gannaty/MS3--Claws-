@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Add new post</h3>
+<h3 class="center-align">Edit Post</h3>
 
 <!-- Add task form. For logged in users only -->
 <div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('add_post') }}">
+    <form class="col s12" method="POST" action="{{ url_for('edit_post') }}">
         <div class="row">
             <div class="input-field col s8 offset-s2">
                 <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate" required>
-                <label for="icon_prefix">Post title</label>
+                <label for="icon_prefix">Edit post title</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s8 offset-s2">
               <textarea id="textarea2" name="post_caption" class="materialize-textarea" data-length="120" required></textarea>
-              <label for="textarea2">Caption</label>
+              <label for="textarea2">Edit post caption</label>
             </div>
         </div>
 
