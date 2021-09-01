@@ -24,6 +24,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# ------- Display all posts in db -------
+
 @app.route("/")
 @app.route("/get_posts")
 def get_posts():
@@ -31,6 +33,8 @@ def get_posts():
 
     return render_template("index.html", posts=posts)
 
+
+# ------- Register user -------
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
