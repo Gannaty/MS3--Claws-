@@ -163,7 +163,7 @@ def posts(post_id):
     post = mongo.db.posts.find_one(
         {"_id": ObjectId(post_id)})
 
-    return render_template("posts.html", post=post, user=user)
+    return render_template("/posts.html", post=post, user=user)
 
 
 if __name__ == "__main__":

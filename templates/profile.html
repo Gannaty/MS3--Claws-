@@ -30,26 +30,27 @@
 
         {% else %}
             <!-- Loop through all posts present in database and display -->
-            <div class="container gallery">
-                <div class="row card-margin">
-                {% for post in posts %}
-                <div class="col m4 s12 ">
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{{ post.image }}">
+            
+                <div class="container gallery">
+                    <div class="row card-margin">
+                    {% for post in posts %}
+                        <div class="col m4 s12 ">
+                            <div class="card">
+                                <div class="card-image">
+                                    <a href="{{ url_for('posts', post_id=post._id) }}"><img src="{{ post.image }}"></a>
+                                </div>
+                                <div class="card-post-title">
+                                    <span class="card-title-style">{{ post.title }}</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>{{ post.post_caption }}</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-post-title">
-                            <span class="card-title-style">{{ post.title }}</span>
-                        </div>
-                        <div class="card-content">
-                            <p>{{ post.post_caption }}</p>
-                        </div>
+                    {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
-                </div>
-            </div>
-
+            
 
     {% endif %}
 
