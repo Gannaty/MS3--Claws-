@@ -171,16 +171,15 @@ def edit_post(post_id):
 
     if request.method == "POST":
 
-        mongo.db.posts.update_one(
-            {"_id": ObjectId(post_id)}, {
-                '$set': {
-                        "title": request.form.get("title"),
-                        "post_caption": request.form.get("post_caption"),
-                        "image": request.form.get("image"),
-                        "poster": session["user"],
-                }
-            }
-        )
+        update_post = {
+            "title": request.form.get("title"),
+            "post_caption": request.form.get("post_caption"),
+            "image": request.form.get("image"),
+            "poster": session["user"]
+        }
+
+        mongo.db.posts.update(
+            {"_id": ObjectId(post_id)}, update_post)
 
         flash("Post Updated!")
         return redirect(url_for(
