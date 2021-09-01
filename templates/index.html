@@ -8,6 +8,8 @@
   <div class="container gallery">
     <div class="row card-margin">
       {% for posts in posts %}
+
+      <!-- Each card links to own page if clicked -->
       <a href="{{ url_for('posts', post_id=posts._id) }}">
         <div class="col m4 s12 ">
           <div class="card">
