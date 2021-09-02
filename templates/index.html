@@ -28,14 +28,14 @@
   <!-- If the search find more than 0 posts display them -->
   {% if posts|length > 0 %}
   <div class="container">
-    <div class="row">
+    <div class="row" data-masonry='{"percentPosition": true }'>
 
       <!-- Loop through all posts present in database and display -->
       {% for posts in posts %}
       <!-- Each card links to own page if clicked -->
-      <div class="col justify-content-center">
+      <div class="col col-lg-3 col-md-4">
         <a href="{{ url_for('posts', post_id=posts._id) }}">
-          <div class="card" style="width: 18rem;">
+          <div class="card mx-auto" style="width: 18rem;">
             <img src="{{ posts.image }}" class="card-img-top" alt="image of {{ posts.title }}">
             <div class="card-body">
               <h5 class="card-title">{{ posts.title }}</h5>
@@ -54,3 +54,4 @@
   {% endif %}
 
 {% endblock %}
+
