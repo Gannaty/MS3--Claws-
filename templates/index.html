@@ -15,7 +15,7 @@
         </div>
 
         <!-- Button to reset search bar -->
-        <div class="col s12 m4">
+        <div class="col">
           <a href="{{ url_for('get_posts') }}" class="red btn text-shadow">Reset</a>
           <button type="submit" class="light-blue darken-1 btn text-shadow">
             <i class="fas fa-search left">Search</i>
@@ -33,9 +33,9 @@
       <!-- Loop through all posts present in database and display -->
       {% for posts in posts %}
       <!-- Each card links to own page if clicked -->
-      <div class="col col-lg-3 col-md-4">
+      <div class="col col-xl-3 col-lg-4 col-md-6">
         <a href="{{ url_for('posts', post_id=posts._id) }}">
-          <div class="card mx-auto" style="width: 18rem;">
+          <div class="card mx-auto my-2" style="width: 18rem;">
             <img src="{{ posts.image }}" class="card-img-top" alt="image of {{ posts.title }}">
             <div class="card-body">
               <h5 class="card-title">{{ posts.title }}</h5>
