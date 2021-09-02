@@ -25,25 +25,24 @@
     </form>
   </div>
 
+  <!-- If the search find more than 0 posts display them -->
   {% if posts|length > 0 %}
-  <!-- Loop through all posts present in database and display -->
-  <div class="container gallery">
-    <div class="row card-margin">
-      {% for posts in posts %}
+  <div class="container">
+    <div class="row">
 
+      <!-- Loop through all posts present in database and display -->
+      {% for posts in posts %}
       <!-- Each card links to own page if clicked -->
-      <a href="{{ url_for('posts', post_id=posts._id) }}">
-        <div class="col m4 s12 ">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{ posts.image }}">
-            </div>
-            <div class="card-post-title">
-              <span class="card-title-style">{{ posts.title }}</span>
+      <div class="col justify-content-center">
+        <a href="{{ url_for('posts', post_id=posts._id) }}">
+          <div class="card" style="width: 18rem;">
+            <img src="{{ posts.image }}" class="card-img-top" alt="image of {{ posts.title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ posts.title }}</h5>
             </div>
           </div>
-        </div>
-      </a>  
+        </a>
+      </div>
       {% endfor %}
     </div>
   </div>
