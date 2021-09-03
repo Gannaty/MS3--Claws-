@@ -135,10 +135,6 @@ def profile(username):
         posts = list(
             mongo.db.posts.find({"poster": username.lower()}))
 
-        posts = list(mongo.db.posts.find().sort("_id", -1))
-
-        birds.sort(key=lambda b: b.weight())
-
     # Find the post of user currently in session and display on profile page
     return render_template(
         "/profile.html", posts=posts, username=username, user=user)
@@ -177,6 +173,31 @@ def edit_profile(username):
             return redirect(url_for("profile", username=session["user"]))
 
     return render_template("/edit_profile.html", user=user, username=username)
+
+
+# ------- Profile page with all current user posts ---------------
+
+@app.route("/favourite_posts/<username>", methods=["GET", "POST"])
+def favourite_posts(username):
+    """
+     Username variable = grab session user's username from db
+    """
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    # Add profile info from users collection
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+
+    if session["user"] == username:
+
+        posts = list(
+            mongo.db.posts.find({"poster": username.lower()}))
+
+    # Find the post of user currently in session and display on profile page
+    return render_template(
+        "/favourite_post.html", posts=posts, username=username, user=user)
+
 
 
 # ------- Add post -------
