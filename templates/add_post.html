@@ -7,9 +7,9 @@
 <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('add_post') }}">
         <div class="row">
-            <div class="input-field col s8 offset-s2">
-                <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate" required>
-                <label for="icon_prefix">Post title</label>
+            <div class="col mb-3">
+                <label for="icon_prefix" class="form-label">Post title</label>
+                <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="form-control" required>
             </div>
         </div>
         <div class="row">
