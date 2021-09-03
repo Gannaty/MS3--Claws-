@@ -29,7 +29,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_posts")
 def get_posts():
-    posts = list(mongo.db.posts.find())
+
+    posts = list(mongo.db.posts.find().sort("_id", -1))
 
     return render_template("index.html", posts=posts)
 
@@ -125,6 +126,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
+    # Add profile info from users collection
     user = mongo.db.users.find_one(
         {"username": session["user"]})
 
@@ -132,6 +134,10 @@ def profile(username):
 
         posts = list(
             mongo.db.posts.find({"poster": username.lower()}))
+
+        posts = list(mongo.db.posts.find().sort("_id", -1))
+
+        birds.sort(key=lambda b: b.weight())
 
     # Find the post of user currently in session and display on profile page
     return render_template(
@@ -146,6 +152,10 @@ def edit_profile(username):
     Registered users can upload profile pictures
     """
 
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    # To look through and display user info
     user = mongo.db.users.find_one(
         {"username": session["user"]})
 
@@ -166,7 +176,7 @@ def edit_profile(username):
                     session["user"]))
             return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("/edit_profile.html", user=user)
+    return render_template("/edit_profile.html", user=user, username=username)
 
 
 # ------- Add post -------

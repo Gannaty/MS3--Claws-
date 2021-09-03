@@ -1,38 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-        <div class="col-md-4">
-            <img src="{{ user.profile_img }}" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-            <h5 class="card-title">{{ username|capitalize }}'s Profile</h5>
-            <p class="card-text">{{ user.profile_bio }}</p>
-            </div>
-        </div>
-        </div>
-    </div>
-    
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <form class="col">
-                <div class="card-panel">
-                    <!-- Profile page welcome -->
-                    <h3 class="text-center">
-                        {{ username|capitalize }}'s Profile
-                    </h3>
+            <div class="card mx-auto mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ user.profile_img }}" class="img-fluid rounded-start" alt="...">
                 </div>
-            </form>
-            <div class="row">
-                <div class="col">
-                    <img src="{{ user.profile_img }}" class="img-thumbnail" alt="">
-                    <p>{{ user.profile_bio }}</p>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ username|capitalize }}'s Profile</h5>
+                    <p class="card-text">{{ user.profile_bio }}</p>
+                    </div>
+                    <div class="row">
+                        <a href="{{ url_for('edit_profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Edit profile</a>
+                    </div>
+                </div>
                 </div>
             </div>
-            </button>
-            <a href="{{ url_for('edit_profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Edit profile</a>
         </div>
     </div>
 
@@ -42,6 +28,7 @@
         </div>
     </div>
 
+    
     {% if posts|length == 0 %}
         <div class="row">
             <div class="col text-center">
@@ -70,15 +57,10 @@
                         </a>
                     </div>
                     {% endfor %}
+                    
                 </div>
             </div>
-
-        
-            
-
     {% endif %}
 
-    
-    
 
 {% endblock %}
