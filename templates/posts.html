@@ -29,16 +29,12 @@
     {% endif %}
 
 
-    <div class="row">
-        <div class="col s12 m6">
-            <div class="card">
-                <div class="card-image">
-                    <img src="{{ post.image }}">
-                    <span class="card-title">{{ post.title }}</span>
-                </div>
-                <div class="card-content">
-                    <p>{{ post.post_caption }}</p>
-                </div>
+    <div class="col col-xl-3 col-lg-4 col-md-6">
+        <div class="card mx-auto my-2" style="width: 18rem;">
+            <img src="{{ post.image }}" class="card-img-top" alt="image of {{ post.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.post_caption }}</p>
             </div>
         </div>
     </div>
