@@ -30,29 +30,28 @@
 
         {% else %}
             <!-- Loop through all posts present in database and display -->
-            
-                <div class="container gallery">
-                    <div class="row card-margin">
+            <div class="container">
+                <div class="row" data-masonry='{"percentPosition": true }'>
+
+                    <!-- Loop through all posts present in database and display -->
                     {% for post in posts %}
-                        <!-- Each card links to own page if clicked -->
+                    <!-- Each card links to own page when clicked -->
+                    <div class="col col-xl-3 col-lg-4 col-md-6">
                         <a href="{{ url_for('posts', post_id=post._id) }}">
-                            <div class="col m4 s12 ">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img src="{{ post.image }}">
-                                    </div>
-                                    <div class="card-post-title">
-                                        <span class="card-title-style">{{ post.title }}</span>
-                                    </div>
-                                    <div class="card-content">
-                                        <p>{{ post.post_caption }}</p>
-                                    </div>
+                            <div class="card mx-auto my-2" style="width: 18rem;">
+                                <img src="{{ post.image }}" class="card-img-top" alt="image of {{ post.title }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ post.title }}</h5>
+                                    <p class="card-text">{{ post.post_caption }}</p>
                                 </div>
                             </div>
                         </a>
-                    {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
+            </div>
+
+        
             
 
     {% endif %}
