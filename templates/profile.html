@@ -11,8 +11,14 @@
                     </h3>
                 </div>
             </form>
+            <div class="row">
+                <div class="col">
+                    <img src="{{ user.profile_img }}" class="img-thumbnail" alt="">
+                    <p>{{ user.profile_bio }}</p>
+                </div>
+            </div>
             </button>
-            <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Edit profile</a>
+            <a href="{{ url_for('edit_profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Edit profile</a>
         </div>
     </div>
 

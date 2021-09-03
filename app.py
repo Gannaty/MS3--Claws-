@@ -24,7 +24,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# ------- Display all posts in db -------
+# ------- Display all users posts -------
 
 @app.route("/")
 @app.route("/get_posts")
@@ -105,7 +105,17 @@ def login():
     return render_template("/login.html")
 
 
-# ------- Add user posts to profile page ---------------
+# ------- Logout ----------------
+
+@app.route("/logout")
+def logout():
+    # remove user from session
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
+# ------- Profile page with all current user posts ---------------
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
@@ -115,23 +125,48 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+
     if session["user"] == username:
 
         posts = list(
             mongo.db.posts.find({"poster": username.lower()}))
 
     # Find the post of user currently in session and display on profile page
-    return render_template("profile.html", posts=posts, username=username)
+    return render_template(
+        "/profile.html", posts=posts, username=username, user=user)
 
 
-# ------- Logout ----------------
+# ------- Add/Edit profile info -------
 
-@app.route("/logout")
-def logout():
-    # remove user from session
-    flash("You have been logged out")
-    session.pop("user")
-    return redirect(url_for("login"))
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+def edit_profile(username):
+    """
+    Registered users can upload profile pictures
+    """
+
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+
+    if session["user"] == username:
+
+        # Update profile function
+        if request.method == "POST":
+
+            mongo.db.users.update_one({'username': session['user']},
+                                      {'$set': {
+                                          'profile_img': request.form.get(
+                                              'profile_img'),
+                                          'profile_bio': request.form.get(
+                                              'profile_bio')
+                                      }})
+
+            flash("{}'s Profile Updated!".format(
+                    session["user"]))
+            return redirect(url_for("profile", username=session["user"]))
+
+    return render_template("/edit_profile.html", user=user)
 
 
 # ------- Add post -------
