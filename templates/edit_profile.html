@@ -18,24 +18,20 @@
         </div>
     </div>
 
-    <!-- Add task form. For logged in users only -->
+    <!-- Edit profile form -->
     <div class="container">
         <div class="row">
             <form class="col col-md-6 col-lg-4;ut mx-auto" method="POST" action="{{ url_for('add_post') }}">
+            
+                <!-- Add profile bio -->
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="icon_prefix" class="form-label">Post title</label>
-                        <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="form-control" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Caption</label>
+                    <label for="exampleFormControlTextarea1" class="form-label">Bio</label>
                     <textarea id="exampleFormControlTextarea1" name="post_caption" class="form-control" rows="3" maxlength="300" required></textarea>
                     </div>
                 </div>
 
-                <!-- Add image url -->
+                <!-- Add profile picture -->
                 <div class="row">
                     <div class="col">
 
@@ -49,7 +45,7 @@
 
                 <!-- Submit and cancel buttons. Cancel goes to user profile -->
                 <div class="row">
-                <button class="btn" type="submit" name="action">Submit
+                <button class="btn" type="submit" name="action">Save
                     <i class="material-icons right"></i>
                 </button>
                 <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
