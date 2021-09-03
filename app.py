@@ -175,7 +175,7 @@ def edit_profile(username):
     return render_template("/edit_profile.html", user=user, username=username)
 
 
-# ------- Profile page with all current user posts ---------------
+# ------- Favourites page ---------------
 
 @app.route("/favourite_posts/<username>", methods=["GET", "POST"])
 def favourite_posts(username):
@@ -196,8 +196,7 @@ def favourite_posts(username):
 
     # Find the post of user currently in session and display on profile page
     return render_template(
-        "/favourite_post.html", posts=posts, username=username, user=user)
-
+        "/favourite_posts.html", posts=posts, username=username, user=user)
 
 
 # ------- Add post -------

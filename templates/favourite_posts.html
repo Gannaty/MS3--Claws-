@@ -14,7 +14,7 @@
                     <p class="card-text">{{ user.profile_bio }}</p>
                     </div>
                     <div class="row">
-                        <a href="{{ url_for('edit_profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Edit profile</a>
+                        <a href="{{ url_for('edit_profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Back to your posts</a>
                     </div>
                 </div>
                 </div>
@@ -32,7 +32,7 @@
     {% if posts|length == 0 %}
         <div class="row">
             <div class="col text-center">
-                <p>No posts yet!</p>
+                <p>No favourites yet!</p>
                 <a href="{{ url_for('get_posts') }}">See what others have shared!</a>
             </div>
         </div>
