@@ -30,6 +30,7 @@ mongo = PyMongo(app)
 @app.route("/get_posts")
 def get_posts():
 
+    # Display posts newest first
     posts = list(mongo.db.posts.find().sort("_id", -1))
 
     return render_template("index.html", posts=posts)
