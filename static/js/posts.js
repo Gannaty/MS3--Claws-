@@ -33,8 +33,6 @@ $( ".image_upload_btn" ).click(function(event) {
       }, false);
 
   
-      
-  
 // Function for add posts image preview 
 $( ".image_upload_btn" ).on('click', function() {
     $("img").removeClass("hide");
