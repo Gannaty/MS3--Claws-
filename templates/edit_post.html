@@ -1,57 +1,57 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Edit Post</h3>
 
-<!-- Add task form. For logged in users only -->
-<div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
+    <h3 class="text-center">Edit post</h3>
+
+    <!-- Add task form. For logged in users only -->
+    <div class="container">
         <div class="row">
-            <div class="input-field col s8 offset-s2">
-                <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="validate" value="{{ post.title }}" required>
-                <label for="icon_prefix">Edit Title</label>
+            <form class="col col-md-6 col-lg-4;ut mx-auto" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
+                <div class="row">
+                    <div class="col mb-3">
+                        <label for="icon_prefix" class="form-label" >Edit title</label>
+                        <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="form-control" value="{{ post.title }}" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Edit Caption</label>
+                    <textarea id="exampleFormControlTextarea1" name="post_caption" class="form-control" rows="3" maxlength="300" required>{{ post.post_caption }}</textarea>
+                    </div>
+                </div>
+
+                <!-- Add image url -->
+                <div class="row">
+                    <div class="col">
+
+                        <button id="upload_widget" class="cloudinary-button btn waves-effect waves-light image_upload_btn">
+                            Upload files</button>
+
+                        <input id="post_image_url" name="image" type="hidden" scr="{{ post.image }}"  value="{{ post.image }}">
+
+                    </div>
+                </div>
+
+                <!-- Submit and cancel buttons. Cancel goes to user profile -->
+                <div class="row">
+                <button class="btn" type="submit" name="action">Save Edit
+                    <i class="material-icons right"></i>
+                </button>
+                <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
+                </div>
+            </form>
+
+            <!-- Image preview -->
+            <div class="row"></div>
+                <div class="col-md-6 col-lg-4 mx-auto">
+                    <img id="post_header_image" class="img-fluid image-preview hide" src="{{ post.image }}" alt="Preview of post image input">
+                </div>
             </div>
+            
+            
         </div>
-        <div class="row">
-            <div class="input-field col s8 offset-s2">
-              <textarea id="textarea2" name="post_caption" class="materialize-textarea" data-length="120" required>{{ post.post_caption }}</textarea>
-              <label for="textarea2">Edit Caption</label>
-            </div>
-        </div>
-
-        <!-- Add image url -->
-        <div class="row">
-            <div class="file-field input-field col s8 offset-s2">
-
-                <button id="upload_widget" class="cloudinary-button btn waves-effect waves-light image_upload_btn">
-                    Upload files</button>
-
-                <input id="post_image_url" name="image" type="hidden" scr="{{ post.image }}" value="{{ post.image }}">
-
-
-            </div>
-        </div>
-
-        <!-- Submit and cancel buttons. Cancel goes to user profile -->
-        <div class="row center-align">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Save Edit
-            <i class="material-icons right"></i>
-        </button>
-        <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
-        </div>
-    </form>
-
-    <!-- Shows current image -->
-    
-    <div class="container col s8 offset-s2">
-        <img id="post_header_image" class="responsive-img image-preview" src="{{ post.image }}" alt="Preview of post image input">
     </div>
-    
-   
-    
-</div>
-
-<!-- Preview image from url input -->
 
 
 {% endblock %}
