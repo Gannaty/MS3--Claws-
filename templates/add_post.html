@@ -22,20 +22,19 @@
 
             <!-- Add image url -->
             <div class="row">
-                <div class="file-field input-field col s8 offset-s2">
+                <div class="col">
 
                     <button id="upload_widget" class="cloudinary-button btn waves-effect waves-light image_upload_btn">
                         Upload files</button>
 
                     <input id="post_image_url" name="image" type="hidden" scr="{{ posts.image }}">
 
-
                 </div>
             </div>
 
             <!-- Submit and cancel buttons. Cancel goes to user profile -->
-            <div class="row center-align">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <div class="row">
+            <button class="btn" type="submit" name="action">Submit
                 <i class="material-icons right"></i>
             </button>
             <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
@@ -44,8 +43,8 @@
 
         <!-- Image preview -->
         <div class="row"></div>
-            <div class="col">
-                <img id="post_header_image" class="responsive-img image-preview hide" src="{{ posts.image }}" alt="Preview of post image input">
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <img id="post_header_image" class="img-fluid image-preview hide" src="{{ posts.image }}" alt="Preview of post image input">
             </div>
         </div>
         
