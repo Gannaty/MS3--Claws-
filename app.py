@@ -133,8 +133,7 @@ def profile(username):
 
     if session["user"] == username:
 
-        posts = list(
-            mongo.db.posts.find({"poster": username.lower()}))
+        posts = list(mongo.db.posts.find({"poster": username.lower()}).sort("_id", -1))
 
     # Find the post of user currently in session and display on profile page
     return render_template(
@@ -203,6 +202,7 @@ def delete_user(username):
         flash("You do not have permission to do that!")
         return redirect(url_for("profile",
                                 username=session["user"]))
+
 
 # ------- Add post -------
 
@@ -290,6 +290,19 @@ def delete_post(post_id):
 
 
 # ------- Error handlers -------
+
+@app.errorhandler(404)
+def page_not_found(e):
+
+    if "user" in session:
+
+        user = mongo.db.users.find_one(
+            {"username": session["user"]})
+        return render_template("error_handlers/404.html", user=user), 404
+
+    else:
+
+        return render_template("error_handlers/404.html"), 404
 
 
 # ------- Declaration of special variables -------
