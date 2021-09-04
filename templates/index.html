@@ -32,7 +32,7 @@
       {% for posts in posts %}
       <!-- Each card links to own page if clicked -->
       <div class="col col-xl-3 col-lg-4 col-md-6">
-        <a href="{{ url_for('posts', post_id=posts._id) }}" class="card-styling text-decoration-none">
+        <a href="{{ url_for('posts', post_id=posts._id) }}" class="card-styling text-decoration-none text-body">
           <div class="card border-0 mx-auto my-2" style="width: 18rem;">
             <img src="{{ posts.image }}" class="card-img-top" alt="image of {{ posts.title }}">
             <div class="card-body">

@@ -3,7 +3,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="card mx-auto mb-3" style="max-width: 540px;">
+            <div class="card border-0 mx-auto mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                 <div class="col-md-4">
                     <img src="{{ user.profile_img }}" class="img-fluid rounded-start" onerror="this.src='../static/images/default_profile_img.jpg'" alt="...">
@@ -46,7 +46,7 @@
                     {% for post in posts %}
                     <!-- Each card links to own page when clicked -->
                     <div class="col col-xl-3 col-lg-4 col-md-6 ">
-                        <a href="{{ url_for('posts', post_id=post._id) }}" class="card-styling text-decoration-none">
+                        <a href="{{ url_for('posts', post_id=post._id) }}" class="card-styling text-decoration-none text-body">
                             <div class="card border-0 mx-auto my-2" style="width: 18rem;">
                                 <img src="{{ post.image }}" class="card-img-top" alt="image of {{ post.title }}">
                                 <div class="card-body">
