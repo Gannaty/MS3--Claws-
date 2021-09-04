@@ -33,18 +33,20 @@
             </div>
 
             <!-- Submit and cancel buttons. Cancel goes to user profile -->
-            <div class="row">
-            <button class="btn" type="submit" name="action">Submit
-                <i class="material-icons right"></i>
-            </button>
-            <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
+            <div class="row text-center btn-space">
+                <div class="col-8 mx-auto">
+                    <button class="submit-btn" type="submit" name="action">Submit
+                        <i class="material-icons right"></i>
+                    </button>
+                    <a href="{{ url_for('profile', username=session['user']) }}"  class="cancel-btn" aria-label="cancel">Cancel</a>
+                </div>
             </div>
         </form>
 
         <!-- Image preview -->
         <div class="row"></div>
             <div class="col-md-6 col-lg-4 mx-auto">
-                <img id="post_header_image" class="img-fluid image-preview hide" src="{{ posts.image }}" onerror="this.src='../static/images/default_profile_img.jpg'"alt="Preview of post image input">
+                <img id="post_header_image" class="img-fluid" src="{{ posts.image }}" onerror="this.src='../static/images/default_profile_img.jpg'"alt="Preview of post image input">
             </div>
         </div>
         

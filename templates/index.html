@@ -16,15 +16,15 @@
           <!-- Button to reset search bar -->
           <div class="col mx-auto">
             <div class="text-center">
-              <a href="{{ url_for('get_posts') }}" class="btn">Reset</a>
-              <button class="search-btn" type="submit">Search</button>
+              <a href="{{ url_for('get_posts') }}" class="cancel-btn">Reset</a>
+              <button class="send-btn" type="submit">Search</button>
             </div>
           </div>
         </div>
       </form>
     </div>
   </div>
-  
+
   <!-- If the search find more than 0 posts display them -->
   {% if posts|length > 0 %}
   <div class="container">

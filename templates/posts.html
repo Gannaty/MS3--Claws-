@@ -7,16 +7,16 @@
 {% endblock %}
 
 {% block content %}
-
-        <!-- display edit and delete buttons if the post belongs to logged in user -->
+    
+    <!-- display edit and delete buttons if the post belongs to logged in user -->
     {% if session.user == post.poster %}
         <div class="container">
-            <div class="row">
+            <div class="row text-center">
                 <div class="col">
-                    <a href="{{ url_for('edit_post', post_id=post._id) }}" class="waves-effect waves-light btn-large">Edit Post</a>
+                    <a href="{{ url_for('edit_post', post_id=post._id) }}" class="send-btn">Edit Post</a>
 
                     <!--Triggers delete modal -->
-                    <a href="#modal1" class="waves-effect waves-light btn modal-trigger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Post</a>
+                    <a href="#modal1" class="modal-trigger cancel-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Post</a>
 
                     <!-- Delete modal for defensive programming -->
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -42,8 +42,8 @@
     {% endif %}
 
     <div class="container">
-        <div class="col">
-            <div class="card mx-auto my-2" style="width: 18rem;">
+        <div class="col card-top-space">
+            <div class="card mx-auto my-2 border-0" style="width: 30rem;">
                 <img src="{{ post.image }}" class="card-img-top" alt="image of {{ post.title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>

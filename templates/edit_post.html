@@ -35,7 +35,7 @@
 
                 <!-- Submit and cancel buttons. Cancel goes to user profile -->
                 <div class="row">
-                <button class="btn" type="submit" name="action">Save Edit
+                <button class="submit-btn" type="submit" name="action">Save Edit
                     <i class="material-icons right"></i>
                 </button>
                 <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
@@ -43,9 +43,9 @@
             </form>
 
             <!-- Image preview -->
-            <div class="row"></div>
-                <div class="col-md-6 col-lg-4 mx-auto">
-                    <img id="post_header_image" class="img-fluid image-preview hide" src="{{ post.image }}" alt="Preview of post image input">
+            <div class="row mx-auto">
+                <div class="co1-6 col-md-6 col-lg-4">
+                    <img id="post_header_image" class="img-fluid image-preview" src="{{ post.image }}" alt="Preview of post image input">
                 </div>
             </div>
             

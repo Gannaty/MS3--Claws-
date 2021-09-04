@@ -17,6 +17,7 @@ nav .brand-logo {
     margin-left: 2rem;
 }
 
+/* Navbar options styling */
 .navbar-light .navbar-nav .nav-link {
     padding: 1rem 1.5rem!important;
     color: #E55019!important;
@@ -24,6 +25,11 @@ nav .brand-logo {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 1rem 1.5rem!important; 
+}
+
+/* Navbar toggler styling */
 .navbar-toggler {
     border: none;
     color: #FF7DA1!important;
@@ -31,33 +37,45 @@ nav .brand-logo {
 
 
 
-.navbar-expand-lg .navbar-nav .nav-link {
-    padding: 1rem 1.5rem!important; 
-}
+/* ------BUTTON STYLING------ */
 
-.green-row {
-    color: #B4AE55;
-}
-
-
-/* ------SEARCH BAR------ */
-.btn {
+.cancel-btn{
     color: #B4AE55!important;
-    font-weight: bold;
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 2rem 0 2rem;
 }
 
-.search-btn {
+.send-btn {
     
-    font-weight: bold;
+    font-weight: 600;
     background-color: #B4AE55!important;
-    border-radius: 1.5rem;
+    border-radius: 15px;
     border-style: none;
     color: white;
     padding: 0.5rem 1rem 0.5rem 1rem;
     display: inline-block;
     font-size: 20px;
+    text-decoration: none;
 }
 
+.submit-btn {
+    font-weight: 600;
+    background-color: #F38F38;
+    border-radius: 10px;
+    border-style: none;
+    color: white;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    display: inline-block;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.btn-space {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
 
 /* Logo styling */
 
@@ -67,9 +85,24 @@ nav .brand-logo {
 }
 
 /* Give posts rounded edges */ 
-a .card .card-img-top {
+.card .card-img-top {
     border-radius: 1rem;
-};
+}
 
+
+.card-top-space {
+    margin-top: 7rem;
+}
+
+
+.solo-post-bg {
+    background-color: #FCE2E9;
+    position:fixed
+    
+}
+
+/*.image-preview {
+    height: 25vh;
+}*/
 
 
