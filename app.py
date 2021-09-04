@@ -305,6 +305,20 @@ def page_not_found(e):
         return render_template("error_handlers/404.html"), 404
 
 
+@app.errorhandler(500)
+def page_not_found(e):
+
+    if "user" in session:
+
+        user = mongo.db.users.find_one(
+            {"username": session["user"]})
+        return render_template("error_handlers/500.html", user=user), 500
+
+    else:
+
+        return render_template("error_handlers/500.html"), 500
+
+
 # ------- Declaration of special variables -------
 
 if __name__ == "__main__":
