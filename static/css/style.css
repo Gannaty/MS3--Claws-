@@ -19,7 +19,17 @@ nav .brand-logo {
 
 .navbar-light .navbar-nav .nav-link {
     padding: 1rem 1.5rem!important;
+    color: #E55019!important;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
 }
+
+.navbar-toggler {
+    border: none;
+    color: #FF7DA1!important;
+}
+
+
 
 .navbar-expand-lg .navbar-nav .nav-link {
     padding: 1rem 1.5rem!important; 
