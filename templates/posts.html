@@ -48,8 +48,6 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</h5>
                     <p class="card-text">{{ post.post_caption }}</p>
-                    <a href="{{url_for('add_to_favourites', post_id=post._id)}}" aria-label="Favourite"><i class="fas fa-heart"></i> Favourite</a>
-                    <input id="post_image_url" name="favourite_count" type="hidden" scr="{{ post.favourite_count }}"  value="">
                 </div>
             </div>
         </div>
