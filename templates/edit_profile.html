@@ -43,10 +43,10 @@
 
                 <!-- Submit and cancel buttons. Cancel goes to user profile -->
                 <div class="row">
-                <button class="btn" type="submit" name="action">Save
+                <button class="btn submit-btn" type="submit" name="action">Save
                     <i class="material-icons right"></i>
                 </button>
-                <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
+                <a href="{{ url_for('profile', username=session['user']) }}"  class="btn green-btn" aria-label="cancel">Cancel</a>
                 </div>
             </form>
 
@@ -56,10 +56,11 @@
                     <img id="post_header_image" class="img-fluid image-preview hide" src="{{ user.profile_img }}" onerror="this.src='../static/images/default_profile_img.jpg'" alt="Preview of post image input">
                 </div>
             </div>
+            <div class="col text-center">
+                <a href="#modal1" class="btn green-btn modal-trigger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Profile</a>
+            </div>
             <div class="row">
                 <div class="col">
-                    <a href="#modal1" class="waves-effect waves-light btn modal-trigger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete Profile</a>
-
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -71,8 +72,8 @@
                             <p>You'll lose all your posts! This action cannot be undone.</p>
                             </div>
                             <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <a href="{{ url_for('delete_user', username=user.username) }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                            <button type="button" class="btn green-btn" data-bs-dismiss="modal">Cancel</button>
+                            <a href="{{ url_for('delete_user', username=user.username) }}" class="modal-close btn submit-btn">Delete</a>
                             </div>
                         </div>
                         </div>

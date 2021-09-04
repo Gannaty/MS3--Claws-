@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <a href="{{ url_for('delete_post', post_id=post._id) }}" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                                <a href="{{ url_for('delete_post', post_id=post._id) }}" class="modal-close btn submit-btn">Delete</a>
                                 </div>
                             </div>
                             </div>
@@ -44,7 +44,7 @@
 
         <div class="container card-top-space">
             <div class="col">
-                <div class="card mx-auto my-2 border-0 post-card-width" style="">
+                <div class="card mx-auto my-2 border-0 post-card-width">
                     <img src="{{ post.image }}" class="card-img-top" alt="image of {{ post.title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>

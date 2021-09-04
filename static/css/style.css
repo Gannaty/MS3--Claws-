@@ -17,6 +17,11 @@ nav .brand-logo {
     margin-left: 2rem;
 }
 
+.bg-light {
+    opacity: 3;
+    background-color: #CDF2FB!important;
+}
+
 /* Navbar options styling */
 .navbar-light .navbar-nav .nav-link {
     padding: 1rem 1.5rem!important;
@@ -45,6 +50,13 @@ nav .brand-logo {
     font-size: 20px;
     text-decoration: none;
     margin: 0 2rem 0 2rem;
+}
+
+.green-btn {
+    color: #B4AE55!important;
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 .send-btn {
@@ -103,8 +115,9 @@ nav .brand-logo {
 
 
 @media only screen and (max-width: 600px) {
-.post-card-width {
-    width: 18rem;
+    .post-card-width {
+        width: 18rem;
+        }
 }
 
 @media only screen and (min-width: 768px) {
@@ -118,5 +131,3 @@ nav .brand-logo {
 /*.image-preview {
     height: 25vh;
 }*/
-
-
