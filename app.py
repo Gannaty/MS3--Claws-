@@ -185,12 +185,24 @@ def delete_user(username):
     """
 
     if session["user"] == username:
+
+        # Deletes user posts 
+        mongo.db.posts.remove(
+            {"poster": username.lower()})
+
+        # Deletes user account 
         mongo.db.users.remove(
             {"username": username.lower()})
         flash("Profile Deleted")
         session.pop("user")
 
         return redirect(url_for("register"))
+
+    else:
+        # if wrong user
+        flash("You do not have permission to do that!")
+        return redirect(url_for("profile",
+                                username=session["user"]))
 
 # ------- Add post -------
 
