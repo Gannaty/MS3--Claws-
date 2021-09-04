@@ -17,10 +17,14 @@ nav .brand-logo {
     margin-left: 2rem
 };
 
-.navbar-light {
-    color: #FF7DA1!important;
-    border-color: #FF7DA1;
+.navbar-light .navbar-nav .nav-link {
+    padding: 1rem 1rem!important;
 }
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 1rem 1rem!important; 
+};
+
 
 
 /* ------NAVBAR------ */

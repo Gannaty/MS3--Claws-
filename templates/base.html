@@ -18,7 +18,7 @@
 
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
+            <div class="container-fluid navbar-padding">
                 <a class="navbar-brand brand-logo" href="{{ url_for('get_posts') }}">Claws</a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -27,28 +27,28 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto fw-bold">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ url_for('get_posts') }}">Home</a>
+                            <a class="nav-link text-danger" aria-current="page" href="{{ url_for('get_posts') }}">Home</a>
                         </li>
                         <!-- if session user is true (logged in) show these links -->
                         {% if session.user %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+                            <a class="nav-link text-danger" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('add_post') }}">New post</a>
+                            <a class="nav-link text-danger" href="{{ url_for('add_post') }}">New post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+                            <a class="nav-link text-danger" href="{{ url_for('logout') }}">Log Out</a>
                         </li>
                         {% else %}
                         <!-- if session user is false (logged out) show these links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('login') }}">Log In</a>
+                            <a class="nav-link text-danger" href="{{ url_for('login') }}">Log In</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                            <a class="nav-link text-danger" href="{{ url_for('register') }}">Register</a>
                         </li>
                         {% endif %}
                     </ul>
