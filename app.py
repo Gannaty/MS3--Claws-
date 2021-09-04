@@ -133,7 +133,8 @@ def profile(username):
 
     if session["user"] == username:
 
-        posts = list(mongo.db.posts.find({"poster": username.lower()}).sort("_id", -1))
+        posts = list(mongo.db.posts.find(
+            {"poster": username.lower()}).sort("_id", -1))
 
     # Find the post of user currently in session and display on profile page
     return render_template(
@@ -293,30 +294,14 @@ def delete_post(post_id):
 
 @app.errorhandler(404)
 def page_not_found(e):
-
-    if "user" in session:
-
-        user = mongo.db.users.find_one(
-            {"username": session["user"]})
-        return render_template("error_handlers/404.html", user=user), 404
-
-    else:
-
-        return render_template("error_handlers/404.html"), 404
+    # Show custom 404 error page
+    return render_template("/error_handlers/404.html"), 404
 
 
 @app.errorhandler(500)
 def server_error(e):
-
-    if "user" in session:
-
-        user = mongo.db.users.find_one(
-            {"username": session["user"]})
-        return render_template("error_handlers/500.html"), 500
-
-    else:
-
-        return render_template("error_handlers/500.html"), 500
+    # Show custom 404 error page
+    return render_template("/error_handlers/500.html"), 500
 
 
 # ------- Declaration of special variables -------

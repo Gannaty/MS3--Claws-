@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+    <h3>Sorry! This page doesn't exists!</h3>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm col-6 mx-auto">
+                <img class="img-fluid" src="../static/images/default_profile_img.jpg" alt="404 error page image">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <a href="{{ url_for('get_posts') }}"  class="btn waves-effect waves-light" aria-label="Back to home page">Back to the home page</a>
+    </div>
+
+{% endblock %}
