@@ -27,32 +27,18 @@ html {
 /* ------NAVBAR------ */
 
 /* Logo styling */
-nav .brand-logo {
-    font-family: 'Lobster', cursive!important;
-    font-size: 2rem;
-    color: #FF7DA1!important;
-};
 
-/* Navbar page options */
-nav .navbar-left {
-    margin-left: 6rem!important;
-}
 
-/* Navbar toggler */
-.navbar-toggler-style .navbar-toggler {
-    color: #FF7DA1!important;
-    border-color: #FF7DA1!important;
-};
 
 /* ------FLASHES------ */
 .flashes h4{
     line-height: 2;
 }
 
-/* Card base */ 
-
+/* Give posts rounded edges */ 
 a .card .card-img-top {
     border-radius: 1rem;
 };
+
 
 

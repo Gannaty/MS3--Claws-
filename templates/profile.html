@@ -2,28 +2,24 @@
 {% block content %}
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="card border-0 mx-auto mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{ user.profile_img }}" class="img-fluid rounded-start" onerror="this.src='../static/images/default_profile_img.jpg'" alt="...">
+        <div class="row my-5">
+            <div class="card border-0 mx-auto" style="max-width: 540px;">
+                <img src="{{ user.profile_img }}" class="img-fluid rounded-pill" onerror="this.src='../static/images/default_profile_img.jpg'" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ username|capitalize }}'s Profile</h5>
+                    <p class="card-text text-center">{{ user.profile_bio }}</p>
                 </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                    <h5 class="card-title">{{ username|capitalize }}'s Profile</h5>
-                    <p class="card-text">{{ user.profile_bio }}</p>
-                    </div>
-                    <div class="row">
-                        <a href="{{ url_for('edit_profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="Edit profile">Edit profile</a>
-                    </div>
+                <div class="row">
+                    <a href="{{ url_for('edit_profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="Edit profile">Edit profile</a>
                 </div>
-                </div>
+                
+                
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col">
+        <div class="col mb-5">
             <h4 class="text-center"><span>Your posts</span></h4>
         </div>
     </div>
@@ -45,7 +41,7 @@
                     <!-- Loop through all posts present in database and display -->
                     {% for post in posts %}
                     <!-- Each card links to own page when clicked -->
-                    <div class="col col-xl-3 col-lg-4 col-md-6 ">
+                    <div class="col col-xl-3 col-lg-4 col-md-6 mb-2">
                         <a href="{{ url_for('posts', post_id=post._id) }}" class="card-styling text-decoration-none text-body">
                             <div class="card border-0 mx-auto my-2" style="width: 18rem;">
                                 <img src="{{ post.image }}" class="card-img-top" alt="image of {{ post.title }}">
