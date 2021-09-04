@@ -29,7 +29,7 @@
     </div>
 
     
-    {% if posts|length == 0 %}
+    {% if post|length == 0 %}
         <div class="row">
             <div class="col text-center">
                 <p>No favourites yet!</p>
@@ -43,15 +43,15 @@
                 <div class="row" data-masonry='{"percentPosition": true }'>
 
                     <!-- Loop through all posts present in database and display -->
-                    {% for post in posts %}
+                    {% for favourite in favourites %}
                     <!-- Each card links to own page when clicked -->
                     <div class="col col-xl-3 col-lg-4 col-md-6">
                         <a href="{{ url_for('posts', post_id=post._id) }}">
                             <div class="card mx-auto my-2" style="width: 18rem;">
-                                <img src="{{ post.image }}" class="card-img-top" alt="image of {{ post.title }}">
+                                <img src="{{ favourite.image }}" class="card-img-top" alt="image of {{ favourite.title }}">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ post.title }}</h5>
-                                    <p class="card-text">{{ post.post_caption }}</p>
+                                    <h5 class="card-title">{{ favourite.title }}</h5>
+                                    <p class="card-text">{{ favourite.post_caption }}</p>
                                 </div>
                             </div>
                         </a>
