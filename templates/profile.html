@@ -45,7 +45,7 @@
                     <!-- Loop through all posts present in database and display -->
                     {% for post in posts %}
                     <!-- Each card links to own page when clicked -->
-                    <div class="col col-xl-3 col-lg-4 col-md-6">
+                    <div class="col col-xl-3 col-lg-4 col-md-6 .card-styling">
                         <a href="{{ url_for('posts', post_id=post._id) }}">
                             <div class="card mx-auto my-2" style="width: 18rem;">
                                 <img src="{{ post.image }}" class="card-img-top" alt="image of {{ post.title }}">
