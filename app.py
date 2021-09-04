@@ -176,91 +176,21 @@ def edit_profile(username):
     return render_template("/edit_profile.html", user=user, username=username)
 
 
-# ------- Add/Edit profile info -------
+# ------- Delete user profile -------
 
 @app.route("/delete_user/<username>")
 def delete_user(username):
-    
-
-
-# ------- Favourites page ---------------
-
-@app.route("/favourite_posts/<username>", methods=["GET", "POST"])
-def favourite_posts(username):
-    """ 
-    Displays recipes the user has 'favourited'
-    Favouriting functionality inspired by:
-    https://github.com/johnnycistudent/recipe-app/blob/master/app.py
+    """
+    Allows user to delete profile
     """
 
     if session["user"] == username:
+        mongo.db.users.remove(
+            {"username": username.lower()})
+        flash("Profile Deleted")
+        session.pop("user")
 
-        # user variable for user image
-        user = mongo.db.users.find_one(
-            {"username": session["user"]})
-
-        post = user["favourite_posts"]
-
-        favourites = list(mongo.db.posts.find(
-            {"_id": {"$in": post}}))
-
-    else:
-        # if wrong user
-        flash("You do not have permission to view this page")
-        return redirect(url_for("favourite_posts",
-                                username=session["user"]))
-
-    return render_template("favourite_posts.html",
-                           user=user,
-                           favourites=favourites,
-                           post=post,
-                           title="My Favourites")
-
-
-# ------- Add to Favourites -------
-
-@app.route("/add_to_favourites/<post_id>", methods=["GET", "POST"])
-def add_to_favourites(post_id):
-    """
-    Adds recipe to the current users 'favourites'
-    Favouriting functionality inspired by:
-    https://github.com/johnnycistudent/recipe-app/blob/master/app.py
-    """
-    posts = mongo.db.posts.find_one(
-        {"_id": ObjectId(post_id)})
-
-    if session["user"] != posts["poster"]:
-        user = mongo.db.users.find_one(
-            {"username": session["user"]})
-
-        favourite_posts = user["favourite_posts"]
-
-        # Checks if recipe is already in favourites
-        if ObjectId(post_id) not in favourite_posts:
-            # Adds recipe_id to users favourite_recipes
-            mongo.db.users.update_one({"username": session["user"]},
-                                      {"$push": {
-                                          "favourite_posts": ObjectId(
-                                              post_id)}})
-
-            # Increments recipes favourite_count by 1
-            mongo.db.recipes.update_one({"_id": ObjectId(post_id)},
-                                        {"$inc": {"favourite_count": 1}})
-        else:
-            # If recipe is already favourited
-            flash("Already Added to favourites")
-            return redirect(url_for("posts",
-                                    post_id=post_id))
-
-        flash("Post added to My Favourites")
-        return redirect(url_for("posts",
-                                post_id=post_id))
-    else:
-        # if user created recipe, they cannot favourite
-        flash("This creation is yours!")
-        return redirect(url_for("posts",
-                                post_id=post_id))
-
+        return redirect(url_for("register"))
 
 # ------- Add post -------
 
