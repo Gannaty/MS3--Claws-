@@ -176,6 +176,13 @@ def edit_profile(username):
     return render_template("/edit_profile.html", user=user, username=username)
 
 
+# ------- Add/Edit profile info -------
+
+@app.route("/delete_user/<username>")
+def delete_user(username):
+    
+
+
 # ------- Favourites page ---------------
 
 @app.route("/favourite_posts/<username>", methods=["GET", "POST"])
