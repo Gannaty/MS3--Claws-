@@ -186,11 +186,11 @@ def delete_user(username):
 
     if session["user"] == username:
 
-        # Deletes user posts 
+        # Deletes user posts
         mongo.db.posts.remove(
             {"poster": username.lower()})
 
-        # Deletes user account 
+        # Deletes user account
         mongo.db.users.remove(
             {"username": username.lower()})
         flash("Profile Deleted")
@@ -288,6 +288,11 @@ def delete_post(post_id):
     return redirect(url_for(
             "profile", username=session["user"]))
 
+
+# ------- Error handlers -------
+
+
+# ------- Declaration of special variables -------
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
