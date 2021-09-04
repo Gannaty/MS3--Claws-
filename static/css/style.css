@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+/* --- ROOT VARIABLES --- */
+
+:root {
+    /* Font variables */ 
+    --body-font: 'Roboto', sans-serif;
+    --accent-font: 'Lobster', cursive;
+    --text-grey: #2D2E29;
+    --text-orange: #E55019; 
+    
+    /* Colour Variables */
+    --blue: #CDF2FB;
+    --light-pink: #FCE2E9;
+    --pink: #FF7DA1;
+    --green: #bce0cc;
+    --yellow: #f1ecc9;
+    --white: #ffffff;
+    --red: #A31300;
+
+    /* Misc Colour Variables */
+    --nav-purple: #9894b9;
+    --border-line: #3329256e;
+    --dark-box: rgba(0,0,0,0.8);
+    --light-box: rgba(0, 0, 0, 0.534);
+}
+
+
 html {
     font-family: 'Roboto', sans-serif;
 }
@@ -13,6 +39,13 @@ nav .brand-logo {
     color: #FF7DA1!important;
 };
 
+/* Navbar options styling */
+.navbar .navbar-nav .nav-link {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.3em;
+    padding: .3em 1em;
+}
 
 /* ------FLASHES------ */
 .flashes h4{
