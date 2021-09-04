@@ -12,11 +12,13 @@
         <label for="query">Search for posts</label>
         <input class="form-control rounded-pill" type="text" name="query" id="query" minlength="3"
           placeholder="" aria-label="default input example" required>
-        <div class="row my-3">
+        <div class="row my-3 mx-auto">
           <!-- Button to reset search bar -->
-          <div class="col-4 mx-auto">
-            <a href="{{ url_for('get_posts') }}" class="red btn text-shadow">Reset</a>
-            <button class="btn btn-primary" type="submit">Search</button>
+          <div class="col mx-auto">
+            <div class="text-center">
+              <a href="{{ url_for('get_posts') }}" class="btn">Reset</a>
+              <button class="btn search-btn" type="submit">Search</button>
+            </div>
           </div>
         </div>
       </form>
