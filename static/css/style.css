@@ -4,16 +4,20 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
+/* ------NAVBAR------ */
+
 /* Logo styling */
 nav .brand-logo {
     font-family: 'Lobster', cursive;
-    color: #FF7DA1;
+    font-size: 2rem;
+    color: #FF7DA1!important;
 };
 
 
-.pink-icon {
-    color: #FF7DA1;
-}
+.navbar-light .navbar-toggler {
+    color: #FF7DA1!important;
+    border-color: #FF7DA1!important;
+};
 
 .flashes h4{
     line-height: 2;
