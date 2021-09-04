@@ -180,24 +180,34 @@ def edit_profile(username):
 
 @app.route("/favourite_posts/<username>", methods=["GET", "POST"])
 def favourite_posts(username):
+    """ 
+    Displays recipes the user has 'favourited'
+    Favouriting functionality inspired by:
+    https://github.com/johnnycistudent/recipe-app/blob/master/app.py
     """
-     Username variable = grab session user's username from db
-    """
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    # Add profile info from users collection
-    user = mongo.db.users.find_one(
-        {"username": session["user"]})
 
     if session["user"] == username:
 
-        posts = list(
-            mongo.db.posts.find({"poster": username.lower()}))
+        # user variable for user image
+        user = mongo.db.users.find_one(
+            {"username": session["user"]})
 
-    # Find the post of user currently in session and display on profile page
-    return render_template(
-        "/favourite_posts.html", posts=posts, username=username, user=user)
+        posts = user["favourite_posts"]
+
+        favourites = list(mongo.db.posts.find(
+            {"_id": {"$in": posts}}))
+
+    else:
+        # if wrong user
+        flash("You do not have permission to view this page")
+        return redirect(url_for("favourite_posts",
+                                username=session["user"]))
+
+    return render_template("favourite_posts.html",
+                           user=user,
+                           favourites=favourites,
+                           posts=posts,
+                           title="My Favourites")
 
 
 # ------- Add post -------
