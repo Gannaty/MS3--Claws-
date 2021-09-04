@@ -89,11 +89,27 @@ nav .brand-logo {
     padding-bottom: 2rem;
 }
 
+
+.page-titles {
+    color: #E55019!important;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+}
+
+.card-title {
+    color: #3E3F39;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+}
+
 /* Logo styling */
 
 /* ------FLASHES------ */
 .flashes h4{
     line-height: 2;
+    text-align: center;
 }
 
 /* Give posts rounded edges */ 

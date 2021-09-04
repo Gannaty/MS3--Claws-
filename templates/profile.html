@@ -7,7 +7,7 @@
                 <div class="card border-0" style="max-width: 540px;">
                     <img src="{{ user.profile_img }}" class="img-fluid rounded-pill" onerror="this.src='../static/images/default_profile_img.jpg'" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{ username|capitalize }}'s Profile</h5>
+                        <h5 class="card-title text-center page-titles">{{ username|capitalize }}'s Profile</h5>
                         <p class="card-text text-center">{{ user.profile_bio }}</p>
                     </div>
                 
@@ -20,8 +20,8 @@
     </div>
 
     <div class="row">
-        <div class="col mb-5">
-            <h4 class="text-center"><span>Your posts</span></h4>
+        <div class="col mb-2">
+            <h4 class="text-center card-title"><span>Your posts</span></h4>
         </div>
     </div>
 
@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col text-center">
                 <p>No posts yet!</p>
-                <a href="{{ url_for('get_posts') }}">See what others have shared!</a>
+                <a href="{{ url_for('get_posts') }}" class="green-btn">See what others have shared!</a>
             </div>
         </div>
 
