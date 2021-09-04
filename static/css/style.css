@@ -14,8 +14,8 @@ nav .brand-logo {
     font-family: 'Lobster', cursive;
     color: #FF7DA1!important;
     font-size: 2.5rem;
-    margin-left: 2rem
-};
+    margin-left: 2rem;
+}
 
 .navbar-light .navbar-nav .nav-link {
     padding: 1rem 1.5rem!important;
@@ -23,11 +23,31 @@ nav .brand-logo {
 
 .navbar-expand-lg .navbar-nav .nav-link {
     padding: 1rem 1.5rem!important; 
-};
+}
+
+.green-row {
+    color: #B4AE55;
+}
 
 
+/* ------SEARCH BAR------ */
+.btn {
+    color: #B4AE55!important;
+    font-weight: bold;
+}
 
-/* ------NAVBAR------ */
+.search-btn {
+    
+    font-weight: bold;
+    background-color: #B4AE55!important;
+    border-radius: 1.5rem;
+    border-style: none;
+    color: white;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    display: inline-block;
+    font-size: 20px;
+}
+
 
 /* Logo styling */
 

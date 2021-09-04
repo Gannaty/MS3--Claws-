@@ -17,7 +17,7 @@
           <div class="col mx-auto">
             <div class="text-center">
               <a href="{{ url_for('get_posts') }}" class="btn">Reset</a>
-              <button class="btn search-btn" type="submit">Search</button>
+              <button class="search-btn" type="submit">Search</button>
             </div>
           </div>
         </div>
@@ -25,6 +25,9 @@
     </div>
   </div>
 
+  <div class="row green-row">
+    <p><strong>Heres some green text</strong></p>
+  </div>
   <!-- If the search find more than 0 posts display them -->
   {% if posts|length > 0 %}
   <div class="container">
