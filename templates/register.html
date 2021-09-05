@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="text-center page-titles">Register</h2>
+<h2 class="text-center page-titles title-margin">Register</h2>
 
     <!-- Bootstrap -->
     <div class="container">
@@ -11,16 +11,14 @@
                     <!-- Username form field -->
                     <div class="row">
                         <div class="col mb-3">
-                            <i class="fas fa-user-cog prefix"></i>
-                            <label for="username" class="form-label">First Name</label>
+                            <label for="username" class="form-label form-text">First Name</label>
                             <input id="username" class="form-control" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         </div>
                     </div>
                     <!-- Password form field -->
                     <div class="row">
                         <div class="col mb-3">
-                            <i class="fas fa-user-lock prefix"></i>
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label form-text">Password</label>
                             <input id="password" class="form-control" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         </div>
                     </div>
@@ -38,11 +36,11 @@
     </div>
 
     <!-- Link to direct user to register page -->
-    <div class="row">
+    <div class="row card-btn-space">
         <div class="col">
             <p class="text-center">
                 Already Registered?
-                <a href="{{ url_for('login' )}}" class="">Log In</a>
+                <a href="{{ url_for('login' )}}" class="green-btn">Log In</a>
             </p>
         </div>
     </div>

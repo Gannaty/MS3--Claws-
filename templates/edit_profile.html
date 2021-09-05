@@ -1,16 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="text-center">Edit Profile</h3>
+    <h3 class="text-center page-titles title-margin">Edit Profile</h3>
 
     <div class="container">
         <div class="row">
             <form class="col">
                 <div class="card-panel">
                     <!-- Profile page welcome -->
-                    <h3 class="text-center page-titles">
-                        {{ username|capitalize }}'s Profile
-                    </h3>
                 </div>
             </form>
         </div>
@@ -24,7 +21,7 @@
                 <!-- Add profile bio -->
                 <div class="row">
                     <div class="col mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Bio</label>
+                    <label for="exampleFormControlTextarea1" class="form-label form-text">Bio</label>
                     <textarea id="exampleFormControlTextarea1" name="profile_bio" class="form-control" rows="3" maxlength="100" required>{{ user.profile_bio }}</textarea>
                     </div>
                 </div>
@@ -33,7 +30,7 @@
                 <div class="row">
                     <div class="col">
 
-                        <button id="upload_widget" class="cloudinary-button btn waves-effect waves-light image_upload_btn">
+                        <button id="upload_widget" class="cloudinary-button btn send-btn image_upload_btn">
                             Upload files</button>
 
                         <input id="post_image_url" name="profile_img" type="hidden" scr="{{ user.profile_img }}" value="{{ user.profile_img }}">
@@ -42,11 +39,13 @@
                 </div>
 
                 <!-- Submit and cancel buttons. Cancel goes to user profile -->
-                <div class="row">
-                <button class="btn submit-btn" type="submit" name="action">Save
-                    <i class="material-icons right"></i>
-                </button>
-                <a href="{{ url_for('profile', username=session['user']) }}"  class="btn green-btn" aria-label="cancel">Cancel</a>
+                <div class="row text-center btn-space">
+                    <div class="col-8 mx-auto">
+                        <button class="btn submit-btn" type="submit" name="action">Save
+                            <i class="material-icons right"></i>
+                        </button>
+                        <a href="{{ url_for('profile', username=session['user']) }}"  class="btn green-btn" aria-label="cancel">Cancel</a>
+                    </div>
                 </div>
             </form>
 
@@ -65,7 +64,7 @@
                         <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">{{ username|capitalize }}Are you sure you want to delete your profile?</h5>
+                            <h5 class="modal-title form-text" id="exampleModalLabel">{{ username|capitalize }}, are you sure you want to delete your profile?</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">

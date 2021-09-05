@@ -47,7 +47,7 @@ nav .brand-logo {
 .cancel-btn{
     color: #B4AE55!important;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
     text-decoration: none;
     margin: 0 2rem 0 2rem;
 }
@@ -55,7 +55,7 @@ nav .brand-logo {
 .green-btn {
     color: #B4AE55!important;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
     text-decoration: none;
 }
 
@@ -68,7 +68,7 @@ nav .brand-logo {
     color: white;
     padding: 0.5rem 1rem 0.5rem 1rem;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
     text-decoration: none;
 }
 
@@ -80,7 +80,7 @@ nav .brand-logo {
     color: white;
     padding: 0.5rem 1rem 0.5rem 1rem;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
     text-decoration: none;
 }
 
@@ -89,6 +89,8 @@ nav .brand-logo {
     padding-bottom: 2rem;
 }
 
+
+/* ------TEXT------ */
 
 .page-titles {
     color: #E55019!important;
@@ -104,7 +106,16 @@ nav .brand-logo {
     font-weight: 600;
 }
 
-/* Logo styling */
+.title-margin {
+    margin-top: 3rem;
+}
+
+.form-text {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 200;
+    color: #3E3F39;
+}
+
 
 /* ------FLASHES------ */
 .flashes h4{
@@ -120,6 +131,10 @@ nav .brand-logo {
 
 .card-top-space {
     margin-top: 7rem;
+}
+
+.card-btn-space {
+    margin-top: 2rem;
 }
 
 

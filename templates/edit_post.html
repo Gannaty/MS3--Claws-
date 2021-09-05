@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <h3 class="text-center page-titles">Edit post</h3>
+    <h3 class="text-center page-titles title-margin">Edit post</h3>
 
     <!-- Add task form. For logged in users only -->
     <div class="container">
@@ -10,22 +10,22 @@
             <form class="col col-md-6 col-lg-4;ut mx-auto" method="POST" action="{{ url_for('edit_post', post_id=post._id) }}">
                 <div class="row">
                     <div class="col mb-3">
-                        <label for="icon_prefix" class="form-label" >Edit title</label>
+                        <label for="icon_prefix" class="form-label form-text" >Edit title</label>
                         <input id="icon_prefix" name="title" type="text" minlength="5" maxlength="25" class="form-control" value="{{ post.title }}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Edit Caption</label>
+                    <label for="exampleFormControlTextarea1" class="form-label form-text">Edit Caption</label>
                     <textarea id="exampleFormControlTextarea1" name="post_caption" class="form-control" rows="3" maxlength="300" required>{{ post.post_caption }}</textarea>
                     </div>
                 </div>
 
-                <!-- Add image url -->
+                <!-- Upload image -->
                 <div class="row">
                     <div class="col">
 
-                        <button id="upload_widget" class="cloudinary-button btn waves-effect waves-light image_upload_btn">
+                        <button id="upload_widget" class="cloudinary-button btn send-btn image_upload_btn">
                             Upload files</button>
 
                         <input id="post_image_url" name="image" type="hidden" scr="{{ post.image }}"  value="{{ post.image }}">
@@ -34,11 +34,13 @@
                 </div>
 
                 <!-- Submit and cancel buttons. Cancel goes to user profile -->
-                <div class="row">
-                <button class="submit-btn" type="submit" name="action">Save Edit
-                    <i class="material-icons right"></i>
-                </button>
-                <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
+                <div class="row text-center btn-space">
+                    <div class="col-8 mx-auto">
+                    <button class="submit-btn" type="submit" name="action">Save Edit
+                        <i class="material-icons right"></i>
+                    </button>
+                    <a href="{{ url_for('profile', username=session['user']) }}"  class="btn waves-effect waves-light" aria-label="cancel">Cancel</a>
+                    </div>
                 </div>
             </form>
 

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2 class="text-center page-titles">Log In</h2>
+    <h2 class="text-center page-titles title-margin">Log In</h2>
 
     <div class="container">
         <div class="row">
@@ -10,14 +10,14 @@
                     <!-- Username form field -->
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="username" class="form-label">First Name</label>
+                            <label for="username" class="form-label form-text">First Name</label>
                             <input id="username" class="form-control" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         </div>
                     </div>
                     <!-- Password form field -->
                     <div class="row">
                         <div class="col mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label form-text">Password</label>
                             <input id="password" class="form-control" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         </div>
                     </div>
@@ -35,11 +35,11 @@
     </div>
 
     <!-- Link to direct user to register page -->
-    <div class="row">
+    <div class="row card-btn-space">
         <div class="col">
             <p class="text-center">
                 New here?
-                <a href="{{ url_for('register' )}}" class="light-blue-text text-darken-4">Create an account</a>
+                <a href="{{ url_for('register' )}}" class="green-btn">Create an account</a>
             </p>
         </div>
     </div>
